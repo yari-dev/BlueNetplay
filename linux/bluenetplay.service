@@ -1,0 +1,18 @@
+[Unit]
+Description=BlueNetplay
+After=network-online.target sound.target
+Wants=network-online.target
+
+[Service]
+User=@USER@
+SupplementaryGroups=plugdev video audio
+WorkingDirectory=@DIR@
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=-/etc/default/bluenetplay
+ExecStart=@DIR@/.venv/bin/python @DIR@/bluenetplay.py $BLUENETPLAY_ARGS
+Restart=on-failure
+RestartSec=5
+Nice=-5
+
+[Install]
+WantedBy=multi-user.target

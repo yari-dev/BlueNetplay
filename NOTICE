@@ -1,0 +1,28 @@
+BlueNetplay
+Copyright 2026 The BlueNetplay authors
+
+Licensed under the Apache License, Version 2.0 (see LICENSE), except where
+noted below.
+
+BlueNetplay includes or builds on the following third-party work.
+
+drivers/
+  Linux driver for the I-O DATA GV-USB2, reworked from GV-USB2-Driver by
+  Isaac Lozano (https://github.com/Isaac-Lozano/GV-USB2-Driver).
+  Copyright (c) 2019 Isaac Lozano. Dual-licensed under the BSD-3-Clause
+  license and the GNU General Public License version 2; see
+  drivers/LICENSE.bsd and drivers/LICENSE.gpl. The changes are described in
+  drivers/README.md.
+
+tests/test_gamepad_sim.py, tests/test_ble_sim.py
+  Contain Python ports of parts of BlueRetro (SDP parser, HID report
+  descriptor parser, N64 button mapping) by Jacques Gagnon
+  (https://github.com/darthcloud/BlueRetro), licensed under the Apache
+  License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0).
+  The Bluetooth gamepads in gamepad.py and ble_pads.py follow what
+  BlueRetro's source expects from a controller.
+
+Dependencies (not included, installed separately):
+  Bumble (https://github.com/google/bumble), Apache License 2.0
+  aiohttp (https://github.com/aio-libs/aiohttp), Apache License 2.0
+  FFmpeg (https://ffmpeg.org), LGPL 2.1+ / GPL 2+ depending on the build

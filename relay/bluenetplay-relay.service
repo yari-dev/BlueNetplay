@@ -1,0 +1,30 @@
+[Unit]
+Description=BlueNetplay relay
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=bluenetplay
+Group=bluenetplay
+Environment=BLUENETPLAY_RELAY_DATA=/var/lib/bluenetplay-relay
+Environment=BLUENETPLAY_PUBLIC_URL=https://relay.example.com
+ExecStart=/opt/bluenetplay-relay/venv/bin/python /opt/bluenetplay-relay/relay/relay.py serve --host 127.0.0.1 --port 8650 --console-token-file /etc/bluenetplay-relay/console_token
+Restart=always
+RestartSec=2
+
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/bluenetplay-relay
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=yes
+RestrictRealtime=yes
+
+[Install]
+WantedBy=multi-user.target

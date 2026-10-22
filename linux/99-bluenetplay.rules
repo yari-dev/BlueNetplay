@@ -1,0 +1,2 @@
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="04b4", ATTR{idProduct}=="f901", MODE="0660", GROUP="plugdev"
+ACTION=="bind", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_interface", DRIVER=="btusb", ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="f901", RUN+="/bin/sh -c 'echo %k > /sys/bus/usb/drivers/btusb/unbind || true'"

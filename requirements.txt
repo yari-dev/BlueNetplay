@@ -1,0 +1,2 @@
+bumble>=0.0.235
+aiohttp>=3.9
